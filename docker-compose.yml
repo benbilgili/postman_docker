@@ -1,0 +1,7 @@
+version: '3'
+services:
+  newman-jsonserver:
+    build: .
+    ports:
+      - "3000:3000"
+    command: sh -c "cd jsonServer && json-server --watch data.json & newman run /usr/src/app/collection.json -e /usr/src/app/env.json -r cli,html"
